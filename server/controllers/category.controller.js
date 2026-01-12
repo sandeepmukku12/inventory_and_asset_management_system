@@ -43,9 +43,3 @@ export const deleteCategory = async (req, res) => {
     res.status(500).json({ message: "Server error during deletion" });
   }
 };
-
-module.exports = {
-  getCategories,
-  createCategory,
-  deleteCategory,
-}

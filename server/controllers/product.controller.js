@@ -99,9 +99,3 @@ export const updateProduct = async (req, res) => {
     res.status(400).json({ message: "Update failed", error: error.message });
   }
 };
-
-module.exports = {
-    getProducts,
-    createProduct,
-    updateProduct,
-};
