@@ -19,10 +19,10 @@ app.get("/api/test", (req, res) => {
 });
 
 
-// mongoose
-//   .connect(process.env.MONGODB_URI)
-//   .then(() => console.log("MongoDB connected"))
-//   .catch((err) => console.error(err));
+mongoose
+  .connect(process.env.MONGODB_URI)
+  .then(() => console.log("MongoDB connected successfully"))
+  .catch((err) => console.error(err));
 
 const PORT = process.env.PORT || 8082;
 app.listen(PORT, () => {
