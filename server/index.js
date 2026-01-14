@@ -13,7 +13,7 @@ const app = express();
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "https://stocksync-iota.vercel.app/",
+    "https://stocksync-iota.vercel.app",
   ],
   credentials: true
 }));
