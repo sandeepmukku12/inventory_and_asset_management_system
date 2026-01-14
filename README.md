@@ -10,3 +10,22 @@ The system provides **real-time inventory tracking** ⏱️, **low-stock alerts*
 ![Author](https://img.shields.io/badge/Author-Sandeep%20Mukku-orange.svg)
 
 ---
+
+## 📚 Table of Contents
+
+- [🧰 Tech Stack](#-tech-stack)
+- [✨ Features](#-features)
+- [🎨 UI Highlights](#-ui-highlights)
+- [🖼️ Screenshots](#-screenshots)
+- [📦 Installation & Setup](#-installation--setup)
+- [🚀 Usage](#-usage)
+- [🏗 App Structure](#-app-structure)
+- [🗂 Key Files](#-key-files)
+- [🧩 Core Functionality](#-core-functionality)
+- [🔐 Security & Rules](#-security--rules)
+- [🧱 System Architecture](#-system-architecture)
+- [🔗 Database Schema & Relationships](#-database-schema--relationships)
+- [📈 Future Enhancements](#-future-enhancements)
+- [❤️ Built With Love](#-built-with-love)
+
+---
