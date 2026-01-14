@@ -29,3 +29,24 @@ The system provides **real-time inventory tracking** ⏱️, **low-stock alerts*
 - [❤️ Built With Love](#-built-with-love)
 
 ---
+
+## 🧰 Tech Stack
+
+### 🖥️ Frontend
+
+- ⚡ **React 19 (Vite)** – Used for building a fast and interactive user interface.  
+- 🎨 **Material-UI (MUI)** – Provides ready-made components for a clean and consistent design.  
+- 🛣️ **React Router DOM (v7)** – Handles page navigation smoothly across the app.  
+- 📡 **Axios** – Used to communicate with the backend APIs.  
+- 🔔 **React Toastify** – Shows real-time notifications for user actions.
+- 📊 **Recharts** - D3-based charting library for React.
+
+### ⚙️ Backend
+
+- 🟢 **Node.js** – Javascript runtime environment which runs the server-side code and handles requests.  
+- 🚀 **Express** – Lightweight framework for building RESTful APIs.  
+- 🍃 **MongoDB & Mongoose (ODM)** – Stores app data and provides schema-based data modeling.  
+- 🔑 **JWT (JSON Web Token)** – Secure, stateless authentication for user sessions.  
+- 🛡️ **Bcryptjs** – Hashes passwords for secure user authentication.
+
+---
