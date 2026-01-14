@@ -162,10 +162,36 @@ To get started with **Study Flux**, follow these steps:
 - ✅ **Verification** - Return to the **Products** page — all products linked to that supplier are automatically removed to maintain data integrity  
   *(handled via Mongoose middleware)*.
 
-
 ### 5️⃣ Search & Optimization
 - 🔍 **Global Search** - Use the table search bar to find products by **Name** or **SKU**.
-
 - 🧩 **Responsive Filtering** - Filter inventory by **Category** or **Supplier** or **Stock Status** (**In Stock**, **Low Stock**, **Out of Stock**) to see the dynamic UI in action.
+
+---
+
+## 🏗 App Structure
+
+```bash
+stocksync/
+│
+├─ client/ # Frontend built with React + Vite
+│ ├─ public/ # Static assets (images, icons, etc.)
+│ ├─ src/
+│ │ ├─ components/ # Reusable React components
+| | ├─ dashboard/ # Dashboard layout
+│ │ ├─ pages/ # Page components (Login, Register, Dashboard, Products, Categories, Suppliers, Users Management, Profile)
+│ │ ├─ api/ # API calls using Axios
+│ │ └─ context/ # React context for global state (auth)
+│ └─ .env # Environment variables (VITE_APP_URL)
+|
+├─ server/ # Backend built with Node.js + Express
+│ ├─ controllers/ # Handles incoming requests
+│ ├─ models/ # Mongoose schemas (User, product, supplier, category)
+│ ├─ routes/ # API route definitions
+│ ├─ services/ # Business logic for controllers
+│ ├─ middleware/ # Authentication & error handling
+| └─ .env # Environment variables (PORT, DB URI, JWT secret)
+│
+└─ README.md # Project documentation
+```
 
 ---
