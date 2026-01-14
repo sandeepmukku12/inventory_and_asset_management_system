@@ -1,0 +1,6 @@
+# 📦 StockSync | Inventory Management System
+
+📦 StockSync is a full-stack Inventory Management System designed to help businesses efficiently manage products 🛒, categories 🗂️, suppliers 🚚, and stock levels 📊.
+The system provides real-time inventory tracking ⏱️, low-stock alerts ⚠️, and CRUD operations ✏️🗑️ with secure JWT authentication 🔐.
+
+---
