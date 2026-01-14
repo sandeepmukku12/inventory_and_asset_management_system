@@ -75,3 +75,62 @@ The system provides **real-time inventory tracking** ⏱️, **low-stock alerts*
 - 🏷️ **Status Badging** - Visual **color-coding** to clearly represent inventory health.  
 
 ---
+
+## 📦 Installation & Setup
+
+To get started with **Study Flux**, follow these steps:
+
+### 1. Clone the repository
+
+   ```bash
+   git clone https://github.com/sandeepmukku12/stocksync.git
+   cd stocksync
+   ```
+
+### 2. Backend Setup
+   
+   Navigate to the server directory and install dependencies:
+
+   ```bash
+   cd server
+   npm install
+   ```
+   Create a `.env` file in the `server` directory:
+
+   ```env
+   PORT=5000
+   MONGODB_URI=your_mongodb_connection_string
+   JWT_SECRET=your_super_secret_key
+   ```
+   Run the server:
+
+   ```bash
+   npm start
+   ```
+
+### 3. Frontend Setup
+
+   Navigate to the client directory and install dependencies:
+
+   ```bash
+   cd client
+   npm install
+   ```
+   Create a `.env` file in the `client` directory:
+
+   ```env
+   VITE_APP_URL=http://localhost:5173
+   ```
+
+   Start the Vite development server:
+
+   ```bash
+   npm run dev
+   ```
+
+### ✅ Notes
+
+- After running the frontend, open your browser at [http://localhost:5173](http://localhost:5173) (Vite default) to access the app.  
+- Make sure the backend server is running before using the frontend.
+
+---
