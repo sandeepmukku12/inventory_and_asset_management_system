@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const productSchema = new mongoose.Schema(
   {
@@ -26,12 +26,16 @@ const productSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-// Logic to automatically set status based on quantity before saving
-productSchema.pre("save", function (next) {
-  if (this.quantity <= 0) this.status = "Out of Stock";
-  else if (this.quantity <= this.lowStockThreshold) this.status = "Low Stock";
-  else this.status = "In Stock";
-  next();
+productSchema.pre("save", function () {
+  if (this.quantity <= 0) {
+    this.status = "Out of Stock";
+  } else if (this.quantity <= this.lowStockThreshold) {
+    this.status = "Low Stock";
+  } else {
+    this.status = "In Stock";
+  }
 });
 
-module.exports = mongoose.model("Product", productSchema);
+const Product = mongoose.model("Product", productSchema);
+
+export default Product;

@@ -1,19 +1,20 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
+import { CircularProgress, Box } from "@mui/material";
 
-const ProtectedRoute = ({ allowedRoles }) => {
-  const { user } = useContext(AuthContext);
+const ProtectedRoute = () => {
+  const { user, loading } = useContext(AuthContext);
 
-  if (!user) {
-    return <Navigate to="/login" replace />;
+  if (loading) {
+    return (
+      <Box sx={{ display: "flex", justifyContent: "center", mt: 10 }}>
+        <CircularProgress />
+      </Box>
+    );
   }
 
-  if (allowedRoles && !allowedRoles.includes(user.role)) {
-    return <Navigate to="/unauthorized" replace />;
-  }
-
-  return <Outlet />;
+  return user ? <Outlet /> : <Navigate to="/login" replace />;
 };
 
 export default ProtectedRoute;

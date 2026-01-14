@@ -1,6 +1,6 @@
-const jwt = require("jsonwebtoken");
+import jwt from "jsonwebtoken";
 
-const protect = (req, res, next) => {
+export const protect = (req, res, next) => {
   let token = req.headers.authorization?.split(" ")[1];
 
   if (!token) return res.status(401).json({ message: "Not authorized" });
@@ -14,7 +14,7 @@ const protect = (req, res, next) => {
   }
 };
 
-const authorize = (...roles) => {
+export const authorize = (...roles) => {
   return (req, res, next) => {
     if (!roles.includes(req.user.role)) {
       return res
@@ -25,4 +25,4 @@ const authorize = (...roles) => {
   };
 };
 
-module.exports = { protect, authorize };
+// module.exports = { protect, authorize };

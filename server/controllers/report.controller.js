@@ -1,35 +1,11 @@
-const Product = require("../models/Product");
-const Category = require("../models/Category");
+import { getDashboardStats } from "../services/report.service.js";
 
 export const getAnalytics = async (req, res) => {
   try {
-    // Aggregation 1: Count products per category
-    const categoryDistribution = await Product.aggregate([
-      {
-        $group: {
-          _id: "$category",
-          count: { $sum: 1 },
-        },
-      },
-      {
-        $lookup: {
-          from: "categories",
-          localField: "_id",
-          foreignField: "_id",
-          as: "categoryDetails",
-        },
-      },
-      { $unwind: "$categoryDetails" },
-      {
-        $project: {
-          name: "$categoryDetails.name",
-          value: "$count",
-        },
-      },
-    ]);
-
-    res.json({ categoryDistribution });
+    const stats = await getDashboardStats();
+    res.json(stats);
   } catch (error) {
-    res.status(500).json({ message: "Analytics generation failed" });
+    console.error("Report Generation Error:", error);
+    res.status(500).json({ message: "Error generating analytics report" });
   }
 };

@@ -1,39 +1,48 @@
 import { useContext } from "react";
-import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import {
   Box,
   Drawer,
   List,
   ListItem,
-  ListItemButton,
   ListItemIcon,
   ListItemText,
-  AppBar,
-  Toolbar,
   Typography,
+  Divider,
   Button,
+  Icon,
 } from "@mui/material";
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import InventoryIcon from "@mui/icons-material/Inventory";
-import CategoryIcon from "@mui/icons-material/Category";
-import LocalShippingIcon from "@mui/icons-material/LocalShipping";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import LogoutIcon from "@mui/icons-material/Logout";
-import { AuthContext } from "../context/AuthContext";
-
-const drawerWidth = 240;
+import {
+  Dashboard,
+  Inventory,
+  Category,
+  Business,
+  Person,
+  Logout,
+  People,
+} from "@mui/icons-material";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext.jsx";
 
 const Sidebar = () => {
   const { user, logout } = useContext(AuthContext);
   const navigate = useNavigate();
-  const location = useLocation();
+  const drawerWidth = 240;
 
   const menuItems = [
-    { text: "Dashboard", icon: <DashboardIcon />, path: "/" },
-    { text: "Products", icon: <InventoryIcon />, path: "/products" },
-    { text: "Categories", icon: <CategoryIcon />, path: "/categories" },
-    { text: "Suppliers", icon: <LocalShippingIcon />, path: "/suppliers" },
-    { text: "Profile", icon: <AccountCircleIcon />, path: "/profile" },
+    { text: "Dashboard", icon: <Dashboard />, path: "/" },
+    { text: "Products", icon: <Inventory />, path: "/products" },
+    { text: "Categories", icon: <Category />, path: "/categories" },
+    { text: "Suppliers", icon: <Business />, path: "/suppliers" },
+    ...(user.role === "Admin"
+      ? [
+          {
+            text: "Users Management",
+            icon: <People />,
+            path: "/usersManagement",
+          },
+        ]
+      : []),
+    { text: "Profile", icon: <Person />, path: "/profile" },
   ];
 
   const handleLogout = () => {
@@ -43,82 +52,64 @@ const Sidebar = () => {
 
   return (
     <Box sx={{ display: "flex" }}>
-      {/* Top Navbar */}
-      <AppBar
-        position="fixed"
-        sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, bgcolor: "#2c3e50" }}
-      >
-        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-          <Typography variant="h6" noWrap component="div" fontWeight="bold">
-            📦 Inventory Management
-          </Typography>
-          <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-            <Typography variant="body2">
-              Logged in as:{" "}
-              <b>
-                {user?.name} ({user?.role})
-              </b>
-            </Typography>
-            <Button
-              color="inherit"
-              onClick={handleLogout}
-              startIcon={<LogoutIcon />}
-            >
-              Logout
-            </Button>
-          </Box>
-        </Toolbar>
-      </AppBar>
-
-      {/* Persistent Sidebar */}
       <Drawer
         variant="permanent"
         sx={{
           width: drawerWidth,
-          flexShrink: 0,
-          [`& .MuiDrawer-paper`]: {
-            width: drawerWidth,
-            boxSizing: "border-box",
-          },
+          "& .MuiDrawer-paper": { width: drawerWidth, boxSizing: "border-box" },
         }}
       >
-        <Toolbar /> {/* Spacer for the AppBar */}
-        <Box sx={{ overflow: "auto", mt: 2 }}>
-          <List>
-            {menuItems.map((item) => (
-              <ListItem key={item.text} disablePadding>
-                <ListItemButton
-                  onClick={() => navigate(item.path)}
-                  selected={location.pathname === item.path}
-                  sx={{
-                    "&.Mui-selected": {
-                      bgcolor: "#e3f2fd",
-                      borderRight: "4px solid #1976d2",
-                    },
-                  }}
-                >
-                  <ListItemIcon
-                    sx={{
-                      color:
-                        location.pathname === item.path ? "#1976d2" : "inherit",
-                    }}
-                  >
-                    {item.icon}
-                  </ListItemIcon>
-                  <ListItemText primary={item.text} />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List>
+        <Box
+          sx={{
+            p: 2,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <Icon
+            sx={{
+              width: 40,
+              height: 40,
+              borderRadius: "50%",
+              backgroundImage: "url(/logo.jpg)",
+              backgroundSize: "contain",
+              backgroundRepeat: "no-repeat",
+            }}
+          />
+          <Typography
+            variant="h6"
+            fontWeight="bold"
+            sx={{ color: "primary.main", p: 2 }}
+          >
+            StockSync <span style={{ fontWeight: 300 }}>Pro</span>
+          </Typography>
+        </Box>
+        <Divider />
+        <List>
+          {menuItems.map((item) => (
+            <ListItem button key={item.text} component={Link} to={item.path}>
+              <ListItemIcon>{item.icon}</ListItemIcon>
+              <ListItemText primary={item.text} />
+            </ListItem>
+          ))}
+        </List>
+        <Box sx={{ mt: "auto", p: 2 }}>
+          <Button
+            fullWidth
+            variant="outlined"
+            color="error"
+            startIcon={<Logout />}
+            onClick={handleLogout}
+          >
+            Logout
+          </Button>
         </Box>
       </Drawer>
-
-      {/* Main Content Area */}
       <Box
         component="main"
         sx={{ flexGrow: 1, p: 3, bgcolor: "#f4f6f8", minHeight: "100vh" }}
       >
-        <Toolbar /> {/* Spacer for the AppBar */}
         <Outlet />
       </Box>
     </Box>

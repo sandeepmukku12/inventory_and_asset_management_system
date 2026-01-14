@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const supplierSchema = new mongoose.Schema(
   {
@@ -12,14 +12,15 @@ const supplierSchema = new mongoose.Schema(
 );
 
 // CASCADE DELETE: Remove all products linked to this supplier
-supplierSchema.pre("findOneAndDelete", async function (next) {
+supplierSchema.pre("findOneAndDelete", async function () {
   const supplierId = this.getQuery()._id;
   try {
     await mongoose.model("Product").deleteMany({ supplier: supplierId });
-    next();
   } catch (error) {
-    next(error);
+    return res.status(500).json({ message: error.message || "Server Error" });
   }
 });
 
-module.exports = mongoose.model("Supplier", supplierSchema);
+const Supplier = mongoose.model("Supplier", supplierSchema);
+
+export default Supplier;
