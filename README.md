@@ -303,3 +303,26 @@ This architecture ensures:
 - Secure and efficient data flow between client and server  
 
 ---
+
+## 🔗 Database Schema & Relationships
+
+### Schema
+
+- **User**: name, email, password, role  
+- **Product**: name, SKU, quantity, price, stock status, low stock threshold, category reference, supplier reference, creator  
+- **Category**: name, description, creator  
+- **Supplier**: name, contact details, creator  
+
+StockSync uses a structured, relational approach within **MongoDB** to manage inventory data while maintaining strong relationships between products, categories, suppliers, and users.
+
+---
+
+### Logic Highlights
+
+- 🔁 **User ↔ Product** – One-to-Many relationship where users can create and manage multiple products.  
+- 📦 **Category ↔ Product** – One-to-Many relationship allowing each category to contain multiple products.  
+- 🚚 **Supplier ↔ Product** – One-to-Many relationship to link suppliers with their supplied products.  
+- ⚠️ **Cascade Delete** – Deleting a category or supplier automatically removes all related products to maintain data integrity.  
+- 👤 **Ownership Rules** – Products, categories, and suppliers store a `createdBy` field to enforce permission-based updates and deletions.
+
+---
