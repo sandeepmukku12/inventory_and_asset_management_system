@@ -335,3 +335,9 @@ StockSync uses a structured, relational approach within **MongoDB** to manage in
 - 🌐 **Multi-Warehouse Support**
 
 ---
+
+## 📄 License
+
+This project is licensed under the **MIT License**. See the LICENSE file for more info.
+
+---
