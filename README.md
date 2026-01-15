@@ -120,7 +120,7 @@ To get started with **Study Flux**, follow these steps:
    Create a `.env` file in the `client` directory:
 
    ```env
-   VITE_APP_URL=http://localhost:5173
+   VITE_API_URL=http://localhost:8082/api
    ```
 
    Start the Vite development server:
