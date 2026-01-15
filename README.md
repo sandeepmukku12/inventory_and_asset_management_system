@@ -286,3 +286,20 @@ Here are the important files in the StockSync project and their purposes:
   - Eliminates orphaned documents in the database
 
 ---
+
+## 🧱 System Architecture
+
+The application follows a **client–server architecture**:
+
+- The **React frontend** handles user interactions and UI rendering
+- The **Node.js + Express backend** exposes RESTful APIs
+- The frontend communicates with the backend via **HTTP requests using Axios**
+- **JWT tokens** are used to secure API communication
+- **MongoDB** is used as the primary database for persistent storage
+
+This architecture ensures:
+- Clear separation of concerns  
+- Scalability and maintainability  
+- Secure and efficient data flow between client and server  
+
+---
