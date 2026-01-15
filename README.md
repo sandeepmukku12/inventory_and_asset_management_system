@@ -109,9 +109,9 @@ The system provides **real-time inventory tracking** ⏱️, **low-stock alerts*
   <img alt="Profile Page" src="./screenshots/profile.jpg" width="700"/>
 </div>
 
-### Login
+### Login Page
 <div align="center">
-  <img alt="Login" src="./screenshots/login.jpg" width="700"/>
+  <img alt="Login Page" src="./screenshots/login.jpg" width="700"/>
 </div>
 
 ---
