@@ -18,8 +18,8 @@ The system provides **real-time inventory tracking** ⏱️, **low-stock alerts*
 - [🎨 UI Highlights](#-ui-highlights)
 - [🖼️ Screenshots](#-screenshots)
 - [📦 Installation & Setup](#-installation--setup)
-- [🚀 Usage](#-usage)
 - [🎮 Demo Access](#-demo-access)
+- [🚀 Usage](#-usage)
 - [🏗 App Structure](#-app-structure)
 - [🗂 Key Files](#-key-files)
 - [🧩 Core Functionality](#-core-functionality)
@@ -74,6 +74,45 @@ The system provides **real-time inventory tracking** ⏱️, **low-stock alerts*
 - ⚡ **Demo Quick-Start** - One-click demo login buttons on the authentication page for instant access.
 - 🧭 **Dynamic Sidebar** - Navigation items conditionally render based on **user permissions**.
 - 🏷️ **Status Badging** - Visual **color-coding** to clearly represent inventory health.  
+
+---
+
+## 🖼 Screenshots
+
+### Dashboard
+<div align="center">
+  <img alt="Dashboard" src="./screenshots/dashboard.jpg" width="700"/>
+</div>
+
+### Products Page
+<div align="center">
+  <img alt="Products Page" src="./screenshots/products.jpg" width="700"/>
+</div>
+
+### Categories Page
+<div align="center">
+  <img alt="Categories Page" src="./screenshots/categories.jpg" width="700"/>
+</div>
+
+### Suppliers Page
+<div align="center">
+  <img alt="Suppliers Page" src="./screenshots/suppliers.jpg" width="700"/>
+</div>
+
+### Users Management Page
+<div align="center">
+  <img alt="Users Management Page" src="./screenshots/users-management.jpg" width="700"/>
+</div>
+
+### Profile Page
+<div align="center">
+  <img alt="Profile Page" src="./screenshots/profile.jpg" width="700"/>
+</div>
+
+### Login
+<div align="center">
+  <img alt="Login" src="./screenshots/login.jpg" width="700"/>
+</div>
 
 ---
 
@@ -136,6 +175,23 @@ To get started with **Study Flux**, follow these steps:
 
 ---
 
+## 🎮 Demo Access
+
+You can try out StockSync using the following demo credentials:
+
+- **Admin Account**  
+  📧 Email: `admin@demo.com`  
+  🔑 Password: `admin123`
+
+- **Staff Account**  
+  📧 Email: `staff@demo.com`  
+  🔑 Password: `staff123`
+
+> ⚠️ **Important:** These accounts are **for testing/demo purposes only**.  
+> **Do not change the password or modify critical data**, and do **not use them for production data**. All changes may be reset.
+
+---
+
 ## 🚀 Usage
 
 ### 1️⃣ Authentication & Demo Access
@@ -166,23 +222,6 @@ To get started with **Study Flux**, follow these steps:
 ### 5️⃣ Search & Optimization
 - 🔍 **Global Search** - Use the table search bar to find products by **Name** or **SKU**.
 - 🧩 **Responsive Filtering** - Filter inventory by **Category** or **Supplier** or **Stock Status** (**In Stock**, **Low Stock**, **Out of Stock**) to see the dynamic UI in action.
-
----
-
-## 🎮 Demo Access
-
-You can try out StockSync using the following demo credentials:
-
-- **Admin Account**  
-  📧 Email: `admin@demo.com`  
-  🔑 Password: `admin123`
-
-- **Staff Account**  
-  📧 Email: `staff@demo.com`  
-  🔑 Password: `staff123`
-
-> ⚠️ **Important:** These accounts are **for testing/demo purposes only**.  
-> **Do not change the password or modify critical data**, and do **not use them for production data**. All changes may be reset.
 
 ---
 
