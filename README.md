@@ -238,7 +238,7 @@ stocksync/
 │ │ ├─ pages/ # Page components (Login, Register, Dashboard, Products, Categories, Suppliers, Users Management, Profile)
 │ │ ├─ api/ # API calls using Axios
 │ │ └─ context/ # React context for global state (auth)
-│ └─ .env # Environment variables (VITE_APP_URL)
+│ └─ .env # Environment variables (VITE_API_URL)
 |
 ├─ server/ # Backend built with Node.js + Express
 │ ├─ controllers/ # Handles incoming requests
